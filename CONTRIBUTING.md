@@ -36,10 +36,10 @@ as the test runner.
    - **Make your changes**: Implement your changes on your local machine. Make
      sure to follow the project standards (linting and formatting rules).
 
-   > [!note]
-   >
-   > You can use `npm run lint` and `npm run test` to check if your changes are
-   > correct
+> [!note]
+>
+> You can use `npm run lint` and `npm run test` to check if your changes are
+> correct
 
 3. **Send your changes**
 
@@ -48,15 +48,15 @@ as the test runner.
      recommended,
      [conventional commit messages](https://www.conventionalcommits.org/en/v1.0.0).
 
-   > [!warning]
-   >
-   > This project uses [husky](https://typicode.github.io/husky) to run hooks,
-   > one of them is `pre-commit`, which uses
-   > [lint-staged](https://github.com/lint-staged/lint-staged), if you want to
-   > bypass that add `--no-verify` to your commit command.
-   >
-   > But be aware that you check `linting` and `formatting` rules, it will be
-   > check in **CI** too.
+> [!warning]
+>
+> This project uses [husky](https://typicode.github.io/husky) to run hooks,
+> one of them is `pre-commit`, which uses
+> [lint-staged](https://github.com/lint-staged/lint-staged), if you want to
+> bypass that add `--no-verify` to your commit command.
+>
+> But be aware that you check `linting` and `formatting` rules, it will be
+> check in **CI** too.
 
    - **Push to your fork**: Push your changes to your fork using
      `git push origin <branch-name>`.
