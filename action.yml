@@ -1,0 +1,21 @@
+name: selene-linter
+description: |
+  GitHub action to run Selene, a blazing-fast modern Lua linter written in Rust
+author: AlejandroSuero
+branding:
+  icon: check-circle
+  color: blue
+inputs:
+  token:
+    description: The GITHUB_SECRET token
+    required: true
+  args:
+    description: CLI arguments to pass to Selene
+    required: true
+  version:
+    description: The version of Selene to use
+  exluded_dirs:
+    description: The excluded directories for selene to ignore
+runs:
+  using: node20
+  main: dist/index.js
