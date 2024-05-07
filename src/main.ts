@@ -37,10 +37,6 @@ export default async function run(): Promise<void> {
     if (seleneDir) {
       core.debug(`Found cached version of selene at ${seleneDir}`)
       core.addPath(seleneDir)
-      fs.readFile(`${seleneDir}/selene.toml`, (err, data) => {
-        if (err) core.setFailed(err.message)
-        core.info(`Found selene.toml: \n${data}`)
-      })
     } else {
       core.debug('No cached version found, downloading selene ...')
       // If a specific version was passed then download it
@@ -76,10 +72,6 @@ export default async function run(): Promise<void> {
       if (process.platform === 'linux' || process.platform === 'darwin') {
         await exec(`chmod +x ${extractedPath}/selene`)
       }
-      fs.readFile(`${extractedPath}/selene.toml`, (err, data) => {
-        if (err) core.setFailed(err.message)
-        core.info(`Found selene.toml: \n${data}`)
-      })
     }
 
     // Run selene
