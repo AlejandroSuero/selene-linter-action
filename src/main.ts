@@ -3,7 +3,6 @@ import { exec } from '@actions/exec'
 import * as tc from '@actions/tool-cache'
 import * as semver from 'semver'
 import selene, { type GitHubRelease } from './selene'
-import fs from 'node:fs'
 
 export default async function run(): Promise<void> {
   try {
