@@ -1,9 +1,9 @@
 <div align="center">
   <h1>GitHub Action for Selene</h1>
 
-<a href="https://github.com/AlejandroSuero/selene-linter-action/actions">
-  <img alt="selene-linter-action status" src="https://github.com/AlejandroSuero/selene-linter-action/workflows/build-test/badge.svg">
-</a>
+![CI](https://github.com/actions/typescript-action/actions/workflows/ci.yml/badge.svg)
+[![Coverage](./badges/coverage.svg)](./badges/coverage.svg)
+![Test build](https://github.com/AlejandroSuero/selene-linter-action/actions/workflows/test.yml/badge.svg)
 
 </div>
 

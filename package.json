@@ -28,13 +28,14 @@
     "build": "tsc",
     "ci-test": "npx jest",
     "test": "npx jest",
+    "coverage": "npx make-coverage-badge --output-path ./badges/coverage.svg",
     "bundle": "npm run format:write && npm run package",
     "format:write": "npx prettier --write **/*.{ts,js}",
     "format:check": "npx prettier --check **/*.{ts,js}",
     "lint": "npx eslint --ext .ts,.js . -c ./.eslintrc.json",
     "lint:fix": "npx eslint --ext .ts,.js . -c ./.eslintrc.json --fix",
     "package": "npx ncc build src/index.ts -o dist --source-map --license licenses.txt",
-    "all": "npm run test && npm run build && npm run format:check && npm run lint && npm run package"
+    "all": "npm run test && npm run coverage && npm run build && npm run format:check && npm run lint && npm run package"
   },
   "license": "MIT",
   "jest": {
