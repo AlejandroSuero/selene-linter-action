@@ -1,7 +1,9 @@
 <div align="center">
   <h1>GitHub Action for Selene</h1>
 
-<a href="https://github.com/AlejandroSuero/selene-linter-action/actions"><img alt="selene-linter-action status" src="https://github.com/AlejandroSuero/selene-linter-action/workflows/test.yml/badge.svg"></a>
+<a href="https://github.com/AlejandroSuero/selene-linter-action/actions">
+  <img alt="selene-linter-action status" src="https://github.com/AlejandroSuero/selene-linter-action/workflows/build-test/badge.svg">
+</a>
 
 </div>
 
