@@ -1,0 +1,78 @@
+name: Bug Report
+description: Report a problem with selene-linter-action
+title: '[Bug]: '
+labels:
+  - bug
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Before reporting
+
+        - Confirm that the problem is reproducible.
+
+  - type: checkboxes
+    id: pre-requisites
+    attributes:
+      label: Pre-requisites
+      description:
+        Make sure to check to see if you are following this requisites.
+      options:
+        - label: The issue is reproducible
+          required: true
+        - label: The aren't other issues similar to this problem.
+          required: true
+        - label: The aren't PRs tackling this problem.
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Issue report
+
+  - type: input
+    id: node-version
+    attributes:
+      label: Node version
+      description: Paste here your Node version, `node --version`.
+      placeholder: v20.12.2
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue-behaviour
+    attributes:
+      label: Behaviour
+      description:
+        Describe the current behaviour. May include logs, images, videos ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro-steps
+    attributes:
+      label: Steps to reproduce
+      description: List the steps to reproduce the behaviour mentioned above.
+      placeholder: |
+        1. `npm run ...`
+        2. Go to ...
+        3. Use ...
+        ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: operative-system
+    attributes:
+      label: Operative system
+      description: OS in which the issue occurs
+      multiple: true
+      options:
+        - Windows
+        - MacOS
+        - Linux
+        - Android
+        - All systems
+    validations:
+      required: true
