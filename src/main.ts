@@ -4,7 +4,7 @@ import * as tc from '@actions/tool-cache'
 import * as semver from 'semver'
 import selene, { type GitHubRelease } from './selene'
 
-export default async function run(): Promise<void> {
+export async function run(): Promise<void> {
   try {
     // Get required information from CI file
     const token = core.getInput('token')
