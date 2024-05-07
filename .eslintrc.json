@@ -20,12 +20,13 @@
     "sourceType": "module",
     "project": ["./.github/linters/tsconfig.json", "./tsconfig.json"]
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["jest", "@typescript-eslint", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:github/recommended",
+    "plugin:jest/recommended",
     "eslint-config-prettier"
   ],
   "rules": {
