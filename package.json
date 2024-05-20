@@ -26,16 +26,50 @@
   "scripts": {
     "prepare": "husky",
     "build": "tsc",
+    "ci-test": "npx jest",
+    "test": "npx jest",
+    "coverage": "npx make-coverage-badge --output-path ./badges/coverage.svg",
     "bundle": "npm run format:write && npm run package",
     "format:write": "npx prettier --write **/*.{ts,js}",
     "format:check": "npx prettier --check **/*.{ts,js}",
     "lint": "npx eslint --ext .ts,.js . -c ./.eslintrc.json",
     "lint:fix": "npx eslint --ext .ts,.js . -c ./.eslintrc.json --fix",
     "package": "npx ncc build src/index.ts -o dist --source-map --license licenses.txt",
-    "all": "npm run build && npm run format:check && npm run lint && npm run package"
+    "all": "npm run test && npm run coverage && npm run build && npm run format:check && npm run lint && npm run package"
   },
   "license": "MIT",
+  "jest": {
+    "preset": "ts-jest",
+    "verbose": true,
+    "clearMocks": true,
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "js",
+      "ts"
+    ],
+    "testMatch": [
+      "**/*.test.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./src/**"
+    ]
+  },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.12.12",
     "@types/semver": "^7.5.8",
     "@typescript-eslint/parser": "^7.10.0",
@@ -43,10 +77,14 @@
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-github": "^4.10.2",
+    "eslint-plugin-jest": "^28.5.0",
     "husky": "9.0.11",
+    "jest": "^29.7.0",
     "js-yaml": "^4.1.0",
     "lint-staged": "15.2.2",
+    "make-coverage-badge": "^1.2.0",
     "prettier": "^3.2.5",
+    "ts-jest": "^29.1.2",
     "typescript": "^5.4.5"
   },
   "dependencies": {
