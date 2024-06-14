@@ -17,9 +17,7 @@
     "selene",
     "linter"
   ],
-  "exports": {
-    ".": "./dist/index.js"
-  },
+  "main": "lib/main.js",
   "engines": {
     "node": ">=20"
   },
@@ -27,12 +25,12 @@
     "prepare": "husky",
     "build": "tsc",
     "bundle": "npm run format:write && npm run package",
-    "format:write": "npx prettier --write **/*.{ts,js}",
-    "format:check": "npx prettier --check **/*.{ts,js}",
-    "lint": "npx eslint --ext .ts,.js . -c ./.eslintrc.json",
-    "lint:fix": "npx eslint --ext .ts,.js . -c ./.eslintrc.json --fix",
-    "package": "npx ncc build src/index.ts -o dist --source-map --license licenses.txt",
-    "all": "npm run build && npm run format:check && npm run lint && npm run package"
+    "format:write": "prettier --write **/*.{ts,js}",
+    "format:check": "prettier --check **/*.{ts,js}",
+    "lint": "eslint --ext .ts,.js . -c ./.eslintrc.json",
+    "lint:fix": "eslint --ext .ts,.js . -c ./.eslintrc.json --fix",
+    "package": "ncc build --source-map --license licenses.txt",
+    "all": "npm run build && npm run format && npm run lint && npm run package"
   },
   "license": "MIT",
   "devDependencies": {

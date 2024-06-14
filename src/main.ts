@@ -2,16 +2,16 @@ import * as core from '@actions/core'
 import { exec } from '@actions/exec'
 import * as tc from '@actions/tool-cache'
 import * as semver from 'semver'
-import selene, { type GitHubRelease } from './selene'
+import selene from './selene'
 
-export default async function run(): Promise<void> {
+async function run(): Promise<void> {
   try {
     // Get required information from CI file
     const token = core.getInput('token')
     const args = core.getInput('args')
     let version = semver.clean(core.getInput('version'))
 
-    let releases: GitHubRelease[] | null = null
+    let releases
 
     // If no specific version was passed then download the latest selene release
     if (!version || version === '') {
@@ -76,9 +76,11 @@ export default async function run(): Promise<void> {
     // Run selene
     core.debug(`Running selene with arguments: ${args}`)
     await exec(`selene ${args}`)
-  } catch (err) {
-    if (err instanceof Error) {
-      core.setFailed(err.message)
+  } catch (error) {
+    if (error instanceof Error) {
+      core.setFailed(error.message)
     }
   }
 }
+
+run()

@@ -31,14 +31,13 @@ const exec_1 = require("@actions/exec");
 const tc = __importStar(require("@actions/tool-cache"));
 const semver = __importStar(require("semver"));
 const selene_1 = __importDefault(require("./selene"));
-const node_fs_1 = __importDefault(require("node:fs"));
 async function run() {
     try {
         // Get required information from CI file
         const token = core.getInput('token');
         const args = core.getInput('args');
         let version = semver.clean(core.getInput('version'));
-        let releases = null;
+        let releases;
         // If no specific version was passed then download the latest selene release
         if (!version || version === '') {
             core.debug('No version provided or invalid version provided. Falling back to latest release ...');
@@ -55,11 +54,6 @@ async function run() {
         if (seleneDir) {
             core.debug(`Found cached version of selene at ${seleneDir}`);
             core.addPath(seleneDir);
-            node_fs_1.default.readFile(`${seleneDir}/selene.toml`, (err, data) => {
-                if (err)
-                    throw new Error(err.message);
-                core.info(`Found selene.toml: \n${data}`);
-            });
         }
         else {
             core.debug('No cached version found, downloading selene ...');
@@ -95,11 +89,11 @@ async function run() {
         core.debug(`Running selene with arguments: ${args}`);
         await (0, exec_1.exec)(`selene ${args}`);
     }
-    catch (err) {
-        if (err instanceof Error) {
-            core.setFailed(err.message);
+    catch (error) {
+        if (error instanceof Error) {
+            core.setFailed(error.message);
         }
     }
 }
-exports.default = run;
+run();
 //# sourceMappingURL=main.js.map
