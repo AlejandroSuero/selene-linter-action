@@ -30,7 +30,7 @@
     "lint": "eslint --ext .ts,.js . -c ./.eslintrc.json",
     "lint:fix": "eslint --ext .ts,.js . -c ./.eslintrc.json --fix",
     "package": "ncc build --source-map --license licenses.txt",
-    "all": "npm run build && npm run format && npm run lint && npm run package"
+    "all": "npm run build && npm run format:write && npm run lint && npm run package"
   },
   "license": "MIT",
   "devDependencies": {

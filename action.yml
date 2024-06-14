@@ -1,4 +1,4 @@
-name: selene-linter
+name: selene-linter-action
 description: |
   GitHub action to run Selene, a blazing-fast modern Lua linter written in Rust
 author: AlejandroSuero
